@@ -9,8 +9,8 @@ mod json_parser;
 use service::{ApiClient, Requests};
 use tokio;
 
-const PARALLEL_REQUESTS: usize = 2;
-const CHUNK_SIZE: usize = 2;
+const PARALLEL_REQUESTS: usize = 5;
+const CHUNK_SIZE: usize = 75;
 
 #[tokio::main]
 async fn main() {
@@ -23,6 +23,7 @@ async fn main() {
         .map(|params| {
             let client = client.clone();
             tokio::spawn(async move {
+                println!("handling {:?}\n", params);
                 let body: String = RequestBody { attributes: params }.into();
                 let api = ApiClient::new(client);
                 let headers = ApiClient::common_headers(&ApiConfig::get(
