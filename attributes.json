@@ -1,0 +1,14 @@
+[
+    {
+      "external_id": "test_user_from_api",
+      "stripe_account_status": "progressing"
+    },
+    {
+      "external_id": "test_user_from_api",
+      "stripe_account_status": "progressing"
+    },
+    {
+      "external_id": "test_user_from_api",
+      "stripe_account_status": "progressing"
+    }
+  ]
