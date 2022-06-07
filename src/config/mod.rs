@@ -1,18 +1,18 @@
 use dotenv::dotenv;
 use std::env;
 
-pub struct ApiConfig {
-    pub url: String,
-    pub token: String,
+pub struct ApiConfig {}
+
+#[derive(strum_macros::Display)]
+pub enum ConfigKeys {
+    ApiUrl,
+    ApiToken,
 }
-
 impl ApiConfig {
-    pub fn new() -> Self {
+    pub fn init() {
         dotenv().ok();
-
-        Self {
-            url: env::var("API_URL").unwrap(),
-            token: env::var("API_TOKEN").unwrap(),
-        }
+    }
+    pub fn get(key: String) -> String {
+        env::var(key).unwrap()
     }
 }
